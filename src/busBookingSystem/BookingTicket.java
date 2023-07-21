@@ -40,33 +40,17 @@ public class BookingTicket {
 	}
 
 	public void seaterTicketsAssign(Map<String, Customers> sleeper) {
-		sleeper.put("1A", null);
-		sleeper.put("2A", null);
-		sleeper.put("1B", null);
-		sleeper.put("2B", null);
-		sleeper.put("1C", null);
-		sleeper.put("2C", null);
-		sleeper.put("3A", null);
-		sleeper.put("4A", null);
-		sleeper.put("3B", null);
-		sleeper.put("4B", null);
-		sleeper.put("3C", null);
-		sleeper.put("4C", null);
+		for (int i = 1; i <= 4; i++) {
+			for (char j = 'A'; j <= 'C'; j++)
+				sleeper.put(String.valueOf(i) + j, null);
+		}
 	}
 
 	public void sleeperTicketsAssign(Map<String, Customers> sleeper) {
-		sleeper.put("1A", null);
-		sleeper.put("1B", null);
-		sleeper.put("2A", null);
-		sleeper.put("2B", null);
-		sleeper.put("3A", null);
-		sleeper.put("3B", null);
-		sleeper.put("4A", null);
-		sleeper.put("4B", null);
-		sleeper.put("5A", null);
-		sleeper.put("5B", null);
-		sleeper.put("6A", null);
-		sleeper.put("6B", null);
+		for (int i = 1; i <= 6; i++) {
+			for (char j = 'A'; j <= 'B'; j++)
+				sleeper.put(String.valueOf(i) + j, null);
+		}
 	}
 
 	public void availableTickets() {
