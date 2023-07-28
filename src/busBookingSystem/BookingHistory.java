@@ -10,6 +10,7 @@ public class BookingHistory {
 	static Map<Integer, Customers> CancelTickets = new LinkedHashMap<>();
 	static int cancelTicketsSeries = 1;
 
+	//Changed from Intelliji
 	public static void bookingHistory(Map<String, Customers> history) {
 		for (Entry<String, Customers> map : history.entrySet()) {
 			if (map.getValue() != null) {
