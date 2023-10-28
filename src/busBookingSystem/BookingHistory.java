@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+@SuppressWarnings("ClassEscapesDefinedScope")
 public class BookingHistory {
 
 	static Map<Integer, Customers> CancelTickets = new LinkedHashMap<>();
@@ -24,7 +25,7 @@ public class BookingHistory {
 	}
 
 	public static double cancelAllTickets(BusType busType, BookingType bookingType, Map<String, Customers> maps) {
-		double busFare = 0, remainingFare = 0, remainingFareRefund = 0.00;
+		double busFare, remainingFare, remainingFareRefund = 0.00;
 
 		for (Entry<String, Customers> map : maps.entrySet()) {
 			String key = map.getKey();
@@ -45,7 +46,7 @@ public class BookingHistory {
 
 	public static void cancelPartialTickets(List<String> list, BusType busType, BookingType bookingType) {
 		Map<String, Customers> booking = BookingTicket.bookingTypeCheck(busType, bookingType);
-		double busFare = 0, remainingFare = 0, remainingFareRefund = 0.00;
+		double busFare, remainingFare, remainingFareRefund = 0.00;
 		int bookedSeats = getBookedSeatsCount(booking), i = 0;
 		if (bookedSeats > 0) {
 			for (Entry<String, Customers> map : booking.entrySet()) {
