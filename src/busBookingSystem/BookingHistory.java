@@ -102,10 +102,10 @@ public class BookingHistory {
 		// Seater AC
 		for (Entry<Integer, Customers> map : CancelTickets.entrySet()) {
 			if (map.getValue() != null) {
-				System.out.println("ID : " + map.getKey() + " Ticket: " + map.getValue().getKey() + " Name: "
+				/*System.out.println("ID : " + map.getKey() + " Ticket: " + map.getValue().getKey() + " Name: "
 						+ map.getValue().getName() + " Age: " + map.getValue().getAge() + " Gender: "
 						+ map.getValue().getGender() + " Bus Type: " + map.getValue().getBusType() + " Booking type: "
-						+ map.getValue().getType() + " Fare: " + map.getValue().getFare());
+						+ map.getValue().getType() + " Fare: " + map.getValue().getFare());*/
 			}
 		}
 	}
