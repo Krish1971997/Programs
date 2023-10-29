@@ -24,14 +24,14 @@ public class BookingHistory {
 		}
 	}
 
-	public static double cancelAllTickets(BusType busType, BookingType bookingType, Map<String, Customers> maps) {
+	public static double cancelAllTickets(BusType busType, Map<String, Customers> maps) {
 		double busFare, remainingFare, remainingFareRefund = 0.00;
 
 		for (Entry<String, Customers> map : maps.entrySet()) {
 			String key = map.getKey();
 			if (map.getValue() != null) {
 				busFare = map.getValue().getFare();
-				remainingFare = cancellationFeeCalc(busType, bookingType, busFare);
+				remainingFare = cancellationFeeCalc(busType, busFare);
 				remainingFareRefund += remainingFare;
 				Customers customerGet = maps.get(key);
 				customerGet.setFare(customerGet.getFare() - remainingFare);
@@ -53,7 +53,7 @@ public class BookingHistory {
 				if (list.size() > i) {
 					if (map.getKey().equalsIgnoreCase(list.get(i))) {
 						busFare = map.getValue().getFare();
-						remainingFare = cancellationFeeCalc(busType, bookingType, busFare);
+						remainingFare = cancellationFeeCalc(busType, busFare);
 						remainingFareRefund += remainingFare;
 						Customers customerGet = booking.get(list.get(i));
 						customerGet.setFare(customerGet.getFare() - remainingFare);
@@ -79,33 +79,21 @@ public class BookingHistory {
 		return count;
 	}
 
-	private static double cancellationFeeCalc(BusType busType, BookingType bookingType, double busFare) {
-		switch (busType) {
-		case AC: {
-			if (bookingType == BookingType.SEATER)
-				return busFare * 50 / 100;
-			else
-				return busFare * 50 / 100;
-		}
-		case NONAC: {
-			if (bookingType == BookingType.SEATER)
-				return busFare * 75 / 100;
-			else
-				return busFare * 75 / 100;
-		}
-		default:
-			throw new IllegalArgumentException("Unexpected value: " + busType);
-		}
+	private static double cancellationFeeCalc(BusType busType, double busFare) {
+        return switch (busType) {
+            case AC -> busFare * 50 / 100;
+            case NONAC -> busFare * 75 / 100;
+        };
 	}
 
 	public static void CancellationHistory() {
 		// Seater AC
 		for (Entry<Integer, Customers> map : CancelTickets.entrySet()) {
 			if (map.getValue() != null) {
-				/*System.out.println("ID : " + map.getKey() + " Ticket: " + map.getValue().getKey() + " Name: "
+				System.out.println("ID : " + map.getKey() + " Ticket: " + map.getValue().getKey() + " Name: "
 						+ map.getValue().getName() + " Age: " + map.getValue().getAge() + " Gender: "
 						+ map.getValue().getGender() + " Bus Type: " + map.getValue().getBusType() + " Booking type: "
-						+ map.getValue().getType() + " Fare: " + map.getValue().getFare());*/
+						+ map.getValue().getType() + " Fare: " + map.getValue().getFare());
 			}
 		}
 	}

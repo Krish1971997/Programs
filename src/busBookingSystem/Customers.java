@@ -1,12 +1,7 @@
 package busBookingSystem;
-
-enum gender {
-    M, F
-};
-
 enum status {
     CONFIRMED, CANCELLED
-};
+}
 
 public class Customers {
     String name;
@@ -18,9 +13,6 @@ public class Customers {
     status status;
     String key;
 
-    public String getKey() {
-        return key;
-    }
 
     public void setKey(String key) {
         this.key = key;
@@ -41,11 +33,11 @@ public class Customers {
         return age;
     }
 
-    public BookingType getType() {
+    BookingType getType() {
         return type;
     }
 
-    public void setType(BookingType type) {
+    void setType(BookingType type) {
         this.type = type;
     }
 
@@ -69,19 +61,19 @@ public class Customers {
         this.gender = gender;
     }
 
-    public BusType getBusType() {
+    BusType getBusType() {
         return busType;
     }
 
-    public void setBusType(BusType busType) {
+	public String getKey() {
+		return key;
+	}
+
+    void setBusType(BusType busType) {
         this.busType = busType;
     }
 
-    public status getStatus() {
-        return status;
-    }
-
-    public void setStatus(status confirmed) {
+    void setStatus(status confirmed) {
         this.status = confirmed;
     }
 

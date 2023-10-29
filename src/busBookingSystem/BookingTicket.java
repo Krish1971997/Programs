@@ -9,11 +9,11 @@ import java.util.Scanner;
 
 enum BusType {
 	AC, NONAC
-};
+}
 
 enum BookingType {
 	SEATER, SLEEPER
-};
+}
 
 public class BookingTicket {
 	static Scanner sc = new Scanner(System.in);
@@ -178,10 +178,10 @@ public class BookingTicket {
 		double refundAmount = 0.00;
 		switch (choice) {
 		case 1: {
-			refundAmount += BookingHistory.cancelAllTickets(BusType.AC, BookingType.SLEEPER, sleeperAC);
-			refundAmount += BookingHistory.cancelAllTickets(BusType.NONAC, BookingType.SLEEPER, sleeperNonAC);
-			refundAmount += BookingHistory.cancelAllTickets(BusType.AC, BookingType.SEATER, seaterAC);
-			refundAmount += BookingHistory.cancelAllTickets(BusType.NONAC, BookingType.SEATER, seaterNonAC);
+			refundAmount += BookingHistory.cancelAllTickets(BusType.AC, sleeperAC);
+			refundAmount += BookingHistory.cancelAllTickets(BusType.NONAC, sleeperNonAC);
+			refundAmount += BookingHistory.cancelAllTickets(BusType.AC, seaterAC);
+			refundAmount += BookingHistory.cancelAllTickets(BusType.NONAC, seaterNonAC);
 			System.out.println("Cancelled the all tickets. Remaining fare amount : " + refundAmount);
 			break;
 		}
@@ -234,7 +234,7 @@ public class BookingTicket {
 				bookingFare += map.getValue().getFare();
 			}
 		}
-		System.out.println("Number of seats filled : " + bookingCount + "");
+		System.out.println("Number of seats filled : " + bookingCount);
 
 		for (Entry<Integer, Customers> map : BookingHistory.CancelTickets.entrySet()) {
 			if (map.getValue().busType == busType && map.getValue().getType() == bookingType) {
