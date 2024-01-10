@@ -8,7 +8,7 @@ import java.util.Map.Entry;
 @SuppressWarnings("ClassEscapesDefinedScope")
 public class BookingHistory {
 
-	static Map<Integer, Customers> CancelTickets = new LinkedHashMap<>();
+	public static Map<Integer, Customers> CancelTickets = new LinkedHashMap<>();
 	public static int cancelTicketsSeries = 1;
 
 	//Changed from Intelliji from github
