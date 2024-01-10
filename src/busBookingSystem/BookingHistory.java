@@ -9,7 +9,7 @@ import java.util.Map.Entry;
 public class BookingHistory {
 
 	static Map<Integer, Customers> CancelTickets = new LinkedHashMap<>();
-	static int cancelTicketsSeries = 1;
+	public static int cancelTicketsSeries = 1;
 
 	//Changed from Intelliji from github
 	public static void bookingHistory(Map<String, Customers> history) {
